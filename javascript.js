@@ -1,15 +1,7 @@
 <span id="countdown" class="pomodoro"></span>
 <script>
 
-//Pomodoro timer
-
-//Displays a count down timer in the middle of the page
-//click the clock image to stop/reset the timer
-
-//TODO: get better variable/function names
-var pomodoroTime = 1500;  // 25 minutes pomodoro is the usual
-var relaxTime = 300;      // 5 minutes relax is the
-var extendedRelaxTime = 99999; // every 4th/3rd? time it is extended (TODO: fix meh)
+var extendedRelaxTime = 9000; // every 4th/3rd? time it is extended (TODO: fix meh)
 
 var seconds = 60;
 var tomatoTimes = 0;
@@ -26,25 +18,32 @@ function secondsPassed() {
 
   if (seconds == 0) {
     //stop counting down
-    relaxTimer();
-    //then go to the relax timer
+    //TODO: add true or false here to decide to go to:
+    // pomodoroTimer or relaxTimer
   }
   else {
     seconds--;
   }
 }
 
-
 function pomodoroTimer () {
   // Start pomodoro countdown
+
+  var message = "It's work time."
+  var seconds = 1500;  // 25 minutes pomodoro is the usual time
 
   var pomodoroTimer = true;
   var relaxTimer = false;
 
-  //If pomodoro timer state is false?
+  if (var seconds > 0) {
+      //go to secondsPassed()
+      //then decide to go to relaxTimer
+  }
+  else {
+      //go to relax timer
+  }
 
-  //If pomodoro timer state is true?
-
+  // if seconds > 0 loop and countdown
   //Else
 
   //Update timer on screen to show time remaining.
@@ -56,6 +55,10 @@ function pomodoroTimer () {
 }
 
 function relaxTimer () {
+
+  var message = "Take some time to relax."
+  var relaxTime = 300;      // 5 minutes relax is the usual time
+
   var pomodoroTimer = false;
   var relaxTimer = true;
 
@@ -69,9 +72,17 @@ function relaxTimer () {
 }
 
 function clear() {
-  //set timer back to when pomodoroTimer and relaxTimer are done
-  //set timer back when user clicks clock
+  message = "Pomodoro reset."
+  var seconds = 1500;
+
+
+  //set timer to pomodoroTimer
 }
+
+function pomodorMessage () {
+    //print message
+}
+
 
 
 function pomodoroCounter() {
