@@ -3,23 +3,16 @@
 
 //Set default time
 var seconds = 1500; //25min default for pomodoro
-var tomatoTimes = 0;//Number of times pomodoro and relax have completed
+var pomodoroTimes = 0;//Number of times pomodoro and relax have completed
 var pomodoroStatus = False; //Is the timer running?
+
 
 function pomodoroTimer () {
   var message = "It's work time.";
   var seconds = 1500;  // 25 minute pomodoro
 
   var pomodoroStatus = true;
-
-  if (pomodoroStatus === true)
-    secondsPassed()
-    //go to secondsPassed to show seconds
-  }
-  else {
-      //relaxTimer
-  // Add +1 to tomato times on completion
-    tomatoTimes++;
+  secondsPassed();
 
   }
 }
@@ -30,17 +23,14 @@ function relaxTimer () {
   var seconds = 300;      // 5 minutes relax is the usual time
 
   var pomodoroStatus = false;
-
-  //on completion
-  //go back to pomodoroTimer
   pomodoroMessage();
-  //pomodoroMessage
+  secondsPassed();
 }
 
 function secondsPassed() {
   var minutes = Math.floor((seconds - 30)/60);
-
   var remainingSeconds = seconds % 60;
+  //Get minutes:seconds going
 
   // display a 0 then the seconds remaining when it's under 10 seconds
   if (remainingSeconds < 10) {
@@ -48,18 +38,26 @@ function secondsPassed() {
   }
 
   if (seconds === 0) {
-    //stop counting down
     if (pomodoroStatus === true) {
-      //Does this work?
+
+      pomodoroMessage();
       relaxTimer();
     }
     else (pomodoroStatus === false) {
-      //Does this work?
+
+      pomodoroMessage();
+      pomodoroCounter();
       pomodoroTimer();
+      //finish it
+      //set back to default but increment pomodoroTimes++;
     }
+  // Add +1 to tomato times on completion
+  //pomodoroTimes++;
+
   }
   else {
     seconds--;
+    //display minutes:remainingSeconds counter
   }
 }
 
@@ -69,11 +67,11 @@ function clearTimer() {
 }
 
 function pomodoroMessage () {
-    //print message from each function
+  window.alert(message);
 }
 
 function pomodoroCounter() {
-  if (tomatoTimes == 3) {
+  if (pomodoroTimes == 3) {
     seconds = 600 //10 mins or something
   }
 }
@@ -84,4 +82,5 @@ function timerDone() {
 	audio.play();
 }
 
+pomodoroTimer();
 </script>
