@@ -1,3 +1,25 @@
+* {
+    box-sizing:  border-box;
+    margin:      0;
+    padding:     0;
+    font-family: 'Monospace';
+}
+
+body {
+    background-color: gray;
+    color: white;
+}
+
+.main-wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#Pomodoro {
+    text-align: center;
+    color: tomato;
+}
+
 h1 {
     size: 2em;
 }
