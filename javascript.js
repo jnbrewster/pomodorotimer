@@ -5,31 +5,29 @@
 var seconds = 1500; //25min default for pomodoro
 var pomodoroTimes = 0;//Number of times pomodoro and relax have completed
 var state = 0; //What state are things moving in?
-//0 default start
-//maybe put functions first? -pause / restart
+// 0 - off
+// 1 - start
+// 2 - pomodoro
+// 3 - relax
 
-//1 start pomodoro
-//2 start relax break
-
-
-function pomodoroTimer () {
-  var message = "It's work time.";
+function Pomodoro (pomodoroTime, breakTime) {
+  var state = 0;
   var seconds = 1500;  // 25 minute pomodoro
-
-  var state = 1;
   secondsPassed();
 
   }
 }
 
-function relaxTimer () {
+function pomodoroStart () {
+  //start ticking
+}
 
-  var message = "Take some time to relax.";
-  var seconds = 300;      // 5 minutes relax is the usual time
+function pomodoroPause () {
 
-  var state = 2;
-  pomodoroMessage();
-  secondsPassed();
+}
+
+function pomodoroReset () {
+   //set back to default time
 }
 
 function secondsPassed() {
@@ -45,12 +43,10 @@ function secondsPassed() {
   if (seconds === 0) {
     if (state === 1) {
 
-      pomodoroMessage();
       relaxTimer();
     }
     else (state === 2) {
 
-      pomodoroMessage();
       pomodoroCounter();
       pomodoroTimer();
       //finish it
@@ -66,14 +62,6 @@ function secondsPassed() {
   }
 }
 
-function clearTimer() {
-  message = "Pomodoro reset.";
-  var seconds = 1500;
-}
-
-function pomodoroMessage () {
-  window.alert(message);
-}
 
 function pomodoroCounter() {
   if (pomodoroTimes == 3) {
@@ -81,11 +69,6 @@ function pomodoroCounter() {
   }
 }
 
-function timerDone() {
-  var bell = 'bell.wav';
-  var audio = new Audio(bell);
-	audio.play();
-}
 
-pomodoroTimer();
+Pomodoro();
 </script>
