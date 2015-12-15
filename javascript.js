@@ -2,40 +2,27 @@
 <script>
 
 //Set default time
-var seconds = 1500; //25min default for pomodoro
-var pomodoroTimes = 0;//Number of times pomodoro and relax have completed
-var state = 0; //What state are things moving in?
+var seconds = 1500;     //25min default for pomodoro
+var pomodoroTimes = 0;  //Number of times pomodoro and relax have completed
+var state = 0;          //What state are things moving in?
+
 // 0 - off
 // 1 - start
 // 2 - pomodoro
 // 3 - relax
 
-function Pomodoro (pomodoroTime, breakTime) {
-  var state = 0;
-  var seconds = 1500;  // 25 minute pomodoro
-  secondsPassed();
-
-  }
-}
-
-function pomodoroStart () {
-  //start ticking
-}
-
-function pomodoroPause () {
+function Pomodoro (pomodoroTimer, relaxTimer) {
 
 }
 
-function pomodoroReset () {
-   //set back to default time
-}
+
 
 function secondsPassed() {
   var minutes = Math.floor((seconds - 30)/60);
   var remainingSeconds = seconds % 60;
-  //Get minutes:seconds going
 
   // display a 0 then the seconds remaining when it's under 10 seconds
+  function formatTime (seconds) {
   if (remainingSeconds < 10) {
     remainingSeconds = "0" + remainingSeconds;
   }
@@ -47,11 +34,10 @@ function secondsPassed() {
     }
     else (state === 2) {
 
-      pomodoroCounter();
-      pomodoroTimer();
       //finish it
       //set back to default but increment pomodoroTimes++;
     }
+  }
   // Add +1 to tomato times on completion
   //pomodoroTimes++;
 
@@ -63,12 +49,4 @@ function secondsPassed() {
 }
 
 
-function pomodoroCounter() {
-  if (pomodoroTimes == 3) {
-    seconds = 600 //10 mins or something
-  }
-}
-
-
-Pomodoro();
 </script>
